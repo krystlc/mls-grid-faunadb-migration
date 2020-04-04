@@ -1,0 +1,11 @@
+{
+  "name": "mls-grid",
+  "version": "1.0.0",
+  "description": "MLS Grid Database Replication",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "alex.valle@gmail.com",
+  "license": "ISC"
+}
