@@ -55,7 +55,7 @@ TIMESTAMP.setDate(TIMESTAMP.getDate() - 1)
  */
 const buildFilterStr = (del = false) => {
   let filter = `MlgCanView eq ${del ? 'false' : 'true'}`
-  if (del || !process.env.MLS_CLEAN === 'true') {
+  if (del || process.env.MLS_CLEAN !== 'true') {
     filter += ` and ModificationTimestamp gt ${TIMESTAMP.toISOString()}`
   }
   return `${process.env.MLS_GRID_BASE_URL}/PropertyResi?$filter=${encodeURI(filter)}`
