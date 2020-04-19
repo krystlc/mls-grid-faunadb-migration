@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon --exec babel-node src/index.js",
     "build": "babel src --out-dir dist",
-    "serve": "node dist/index.js"
+    "serve": "node --max-old-space-size=2048 dist/index.js"
   },
   "author": "alex.valle@gmail.com",
   "license": "ISC",
