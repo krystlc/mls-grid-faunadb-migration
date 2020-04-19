@@ -2,11 +2,11 @@
   "name": "mls-grid",
   "version": "1.0.0",
   "description": "MLS Grid Database Replication",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "build": "babel src/index.js --watch -d dist",
-    "start": "npm run build && node dist/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon --exec babel-node src/index.js",
+    "build": "babel src --out-dir dist",
+    "serve": "node dist/index.js"
   },
   "author": "alex.valle@gmail.com",
   "license": "ISC",
@@ -14,10 +14,12 @@
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
     "@babel/node": "^7.8.7",
-    "@babel/preset-env": "^7.9.0"
+    "@babel/preset-env": "^7.9.0",
+    "node-fetch": "^2.6.0",
+    "nodemon": "^2.0.3"
   },
   "dependencies": {
-    "axios": "^0.19.2",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "faunadb": "^2.13.1"
   }
 }
