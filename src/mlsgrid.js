@@ -46,7 +46,7 @@ const fetchMLSProperties = async (url, verb) => {
   }
 }
 
-const TIMESTAMP = new Date(process.env.LAST_TIMESTAMP)
+const TIMESTAMP = new Date()
 TIMESTAMP.setDate(TIMESTAMP.getDate() - 1)
 
 /**

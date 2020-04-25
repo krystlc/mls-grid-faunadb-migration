@@ -1,16 +1,10 @@
 import mlsgrid from './mlsgrid'
+import db from './faunadb'
 
-console.time('app')
-async function updateDb() {
-  console.timeLog('app')
+module.exports.updateDb = async () => {
+  console.time('app')
   await mlsgrid.upsertProperties()
   console.timeLog('app')
   await mlsgrid.deleteProperties()
-}
-
-updateDb().then(() => {
-  console.log('done!')
-}).finally(() => {
   console.timeEnd('app')
-})
-  
+}

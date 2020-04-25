@@ -10,15 +10,15 @@ const client = new faunadb.Client({
   observer: faunadbRequestResult
 })
 
-const ref = q.Match(
+const refById = q.Match(
   q.Index('property_by_ListingId'),
   q.Select(['ListingId'], q.Var('property'))
 )
 
 const upsertQuery = q.If(
-  q.Exists(ref),
+  q.Exists(refById),
   q.Replace(
-    q.Select('ref', q.Get(ref)),
+    q.Select('ref', q.Get(refById)),
     { data: q.Var('property') }
   ),
   q.Create(
@@ -28,9 +28,9 @@ const upsertQuery = q.If(
 )
 
 const deleteQuery = q.If(
-  q.Exists(ref),
+  q.Exists(refById),
   q.Delete(
-    q.Select('ref', q.Get(ref))
+    q.Select('ref', q.Get(refById))
   ),
   null
 )
@@ -47,7 +47,6 @@ const getQuery = verb => {
 }
 
 /**
- * 
  * @param {array} data data to be used in mutation
  * @param {string} verb type of mutation e.g. upsert, delete, etc
  */
@@ -72,6 +71,12 @@ export const updatePropertiesCollection = async (data, verb) => {
   }
 }
 
+const searchByAddress = (address) => {
+  console.log('computing...')
+  return 'i dunno man' + address
+} 
+
 export default {
+  searchByAddress,
   updatePropertiesCollection
 }
